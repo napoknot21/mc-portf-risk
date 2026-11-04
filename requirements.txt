@@ -1,0 +1,4 @@
+yfinance
+polars
+pandas
+matplotlib
