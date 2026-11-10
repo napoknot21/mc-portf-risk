@@ -26,9 +26,13 @@ def load_csv_data_file (
     data_file = os.path.join(dir_abs_path, filename)
 
     if data_file is None :
+
+        print("[-] No data file path provided to load CSV data file.")
         return None
 
     if not os.path.exists(data_file) :
+        
+        print("[-] Data file not found.")
         return None
 
     schema_overrides = DATA_SCHEMA_OVERRIDES if schema_overrides is None else schema_overrides

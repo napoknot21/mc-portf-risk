@@ -10,6 +10,18 @@ load_dotenv()
 
 BASE_DIR_ROOT = Path(__file__).resolve().parent.parent
 
+# Portfolio variables
+
+PORTFOLIO_VALUE_0 = 1_000_000.00
+
+ACTIVE_WEIGHTS = {
+
+    "EFA" : 0.15,
+    "GLD" : 0.15,
+    "SPY" : 0.40,
+    "TLT" : 0.30,
+
+}
 
 # Different paths
 
@@ -24,6 +36,7 @@ DATA_SCHEMA_OVERRIDES = {
     "Date" : pl.Date,
     "EFA" : pl.Float64,
     "GLD" : pl.Float64,
+    "SPY" : pl.Float64,
     "TLT" : pl.Float64
 
 }
