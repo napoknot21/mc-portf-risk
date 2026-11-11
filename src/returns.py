@@ -68,7 +68,15 @@ def compute_portfolio_pnl (
 
     ) -> Optional[pl.DataFrame] :
     """
-
+    Args:
+        dataframe : Optional[pl.DataFrame] = None,
+        schema_overrides : Optional[Dict] = None,
+        log_returns : Optional[pl.DataFrame] = None,
+        portfolio_value_0 : Optional[float] = None,
+    
+    Returns:
+        Optional[pl.DataFrame] : Portfolio PnL DataFrame
+        
     """
     schema_overrides = DATA_SCHEMA_OVERRIDES if schema_overrides is None else schema_overrides
     dataframe = load_csv_data_file(schema_overrides=schema_overrides) if dataframe is None else dataframe
@@ -106,7 +114,6 @@ def compute_portfolio_pnl (
     pnl_df = log_returns.select(pl.col(date_column_name), *weighted_simple_returns)
 
     pnl_df = pnl_df.with_columns(pl.sum_horizontal(contribution_columns).alias(portf_columns_name))
-    
     pnl_df = pnl_df.with_columns((portfolio_value_0 * pl.col(portf_columns_name)).alias(pnl_column_name))
 
     return pnl_df

@@ -42,3 +42,9 @@ DATA_SCHEMA_OVERRIDES = {
 }
 
 
+# Plots and images paths
+
+PLOTS_DIRECTORY_NAME = "imgs"
+PLOTS_DIRECTORY_ABS_PATH = str(os.path.join(BASE_DIR_ROOT,PLOTS_DIRECTORY_NAME))
+
+

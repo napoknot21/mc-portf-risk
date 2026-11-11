@@ -6,6 +6,8 @@ import polars as pl
 
 from src.data import load_csv_data_file
 from src.returns import compute_daily_log_returns, compute_portfolio_pnl
+from src.stats import compute_return_statistics
+from src.plots import historgram_returns_plot
 
 
 def main () -> None :
@@ -23,6 +25,10 @@ def main () -> None :
 
     print(pnl_df)
 
+    stats = compute_return_statistics(pnl_df)
+
+    print(stats)
+    historgram_returns_plot(pnl_df, stats)
     return 0
 
 
